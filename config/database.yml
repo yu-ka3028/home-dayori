@@ -53,4 +53,3 @@ production:
   database: myapp_production
   username: myapp
   password: <%= ENV["MYAPP_DATABASE_PASSWORD"] %>
-  url: <%= ENV['mysql://fdvjaghcqjrw74z8:kwa8rhcyk5169ncp@qf5dic2wzyjf1x5x.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/cbmwz55tl7cb1mrh'] %>
