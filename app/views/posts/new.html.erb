@@ -1,0 +1,16 @@
+<% if flash[:error] %>
+  <div class="alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+
+<%= form_with model: @post || Post.new, url: posts_path, method: :post do |form| %>
+  <%= form.label :radio_name, "ラジオネーム" %>
+  <%= form.text_field :radio_name, maxlength: 25 %>
+
+  <%= form.label :content, "本文" %>
+  <%= form.text_area :content, maxlength: 225 %>
+
+  <button class="btn btn-secondary">Secondary</button>
+  <%= form.submit "投稿" %>
+<% end %>

@@ -1,19 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html data-theme="cupcake">
   <head>
     <% if Rails.env.production? %>
       <%= render 'layouts/google_analytics' %>
     <% end %>
     <title>home_dayori</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
-  <body class="bg-orange-600">
-    <%= yield %>
+  <body>
+    <header>
+      <nav>
+        <ul>
+        <%= link_to 'Top', root_path %>
+        <%= link_to '新規投稿', new_post_path %>
+        <%= link_to '投稿一覧', posts_path %>  
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 home_dayori</p>
+    </footer>
   </body>
 </html>
