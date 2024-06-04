@@ -1,24 +1,41 @@
-# README
+# home-dayori
+[とりあえず構想figma](https://www.figma.com/board/yLlV4uU2811pCNyfR0x87E/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%A2%E3%82%A4%E3%83%87%E3%82%A2?t=7WYSk7FgqbRGLvAi-1)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+---
+## サービス構想（ふわっと）
+- 自分が「ラジオ好き　✖️ 10年日記継続」から、あえてユーザー名ではなくその日の気分で決めるラジオネームでの投稿
+- BeOpenってハードル高かった。Openってネガティブやマウントで相手を不快にさせないか・・・開ききれない。だから「今日の自分を褒める」に絞った投稿サービス
+- 1日の振り返りをネガティブで終わらず、なんとかポジティブにしてみる（言霊ってある）
+- 毎日1個は自分を褒めて自己肯定感UP！！ダラダラ引きずって過ごさず1日を整理して終える！！
+  
+---
+## 機能
 
-Things you may want to cover:
+### バドランまでに実装したい機能
+- 投稿機能
+　　- ラジオネームと本文
+  　　（ユーザー登録なし）
 
-* Ruby version
+- 投稿前に内容確認機能
+  
+- 投稿一覧の閲覧機能
 
-* System dependencies
+- 投票機能
 
-* Configuration
+- Xでのシェア機能
 
-* Database creation
+- (+α)表彰機能
 
-* Database initialization
+### MVPまでに実装したい機能（検討中）
 
-* How to run the test suite
+- 連続投稿記録機能
 
-* Services (job queues, cache servers, search engines, etc.)
+- 今日の気分記録機能
 
-* Deployment instructions
+- 投稿一覧画面の工夫（最新、投票順、キーワードの曖昧検索やタグ実装）
 
-* ...
+- どんなネガティブもポジティブにまとめるAIによる入力サポート
+
+- 投稿内容サポート機能（アプリキャラクターの柴犬が「今日の体への投資は？継続できたことは？みんなの投稿見て随時追加」）
+
+- AIによるコメント機能（ユーザーからはできないが、アプリキャラクターの柴犬からコメント）
