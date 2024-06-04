@@ -11,6 +11,7 @@
   <%= form.label :content, "本文" %>
   <%= form.text_area :content, maxlength: 225 %>
 
-  <button class="btn btn-secondary">Secondary</button>
+  <%= link_to "あああ",posts_path, class: "btn btn-active btn-secondary" %>
+  
   <%= form.submit "投稿" %>
 <% end %>
