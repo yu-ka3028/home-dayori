@@ -6,13 +6,7 @@ module.exports = {
     './app/javascript/**/*.js'
   ],
   plugins: [require("daisyui")],
+  daisyui: {
+    themes: ["light", "dark", "cupcake"]
+  }
 }
- コメント
-
- theme: {
-  extend: {
-    daisyui: {
-      themes: ["light", "dark", "cupcake"],
-    },
-  },
-},

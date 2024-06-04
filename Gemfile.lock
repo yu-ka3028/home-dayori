@@ -149,9 +149,9 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.5-x86-linux)
       racc (~> 1.4)
-    nokogiri (1.16.5-x86_64-darwin)
-      racc (~> 1.4)
     nokogiri (1.16.5-x86_64-linux)
+      racc (~> 1.4)
+    nokogiri (1.16.5-x86_64fmy-darwin)
       racc (~> 1.4)
     psych (5.1.2)
       stringio

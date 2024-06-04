@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_31_080713) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_04_011945) do
   create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "radio_name"
     t.text "content"
@@ -24,4 +24,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_31_080713) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "votes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_votes_on_post_id"
+  end
+
+  add_foreign_key "votes", "posts"
 end
