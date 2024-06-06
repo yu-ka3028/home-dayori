@@ -1,0 +1,19 @@
+<h1 style="text-align: center; font-size: 2em; color: #333;">新規投稿</h1>
+<% if flash[:error] %>
+  <div class="alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+<div class="h-full w-4/5 flex justify-end items-start">
+  <div class="h-96 w-3/5 ml-40 mt-14 carousel carousel-vertical rounded-box transform scale-400">
+<%= form_with model: @post || Post.new, url: posts_path, method: :post do |form| %>
+  <%= form.label :radio_name, "ラジオネーム" %>
+  <div>
+    <%= form.text_field :radio_name, maxlength: 25, placeholder: "Type here", class: "input input-bordered input-accent w-full max-w-xs" %>
+  </div>
+  <%= form.label :content, "本文" %>
+  <div>
+    <%= form.text_area :content, maxlength: 225, class: "textarea textarea-warning", placeholder: "褒めpost" %>
+  </div>
+    <button class="btn btn-accent">投稿</button>
+<% end %>
