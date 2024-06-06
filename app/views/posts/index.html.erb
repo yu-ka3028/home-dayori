@@ -1,11 +1,16 @@
-<h1>投稿一覧</h1>
-
-<% @posts.each do |post| %>
-  <div>
-    <h1><%= post.radio_name %></h1>
-    <p><%= post.content %></p>
-    <p>Votes: <%= post.votes.count %></p>
-    <%= link_to 'Show Vote', show_vote_post_path(post) %>
-    <%= button_to '投票する', vote_post_path(post), method: :post %>
+<h1 style="text-align: center; font-size: 2em; color: #333;">投稿一覧</h1>
+<div class="h-full w-4/5 flex justify-end items-start">
+  <div class="h-96 w-3/5 ml-40 mt-14 carousel carousel-vertical rounded-box transform scale-400">
+    <% @posts.each do |post| %>
+      <div class="carousel-item h-full">
+        <div>
+          <h1><%= post.radio_name %></h1>
+          <p><%= post.content %></p>
+          <p>Votes: <%= post.votes.count %></p>
+          <%= link_to 'Show Vote', show_vote_post_path(post) %>
+          <%= button_to '投票する', vote_post_path(post), method: :post %>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
