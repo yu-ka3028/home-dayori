@@ -9,7 +9,7 @@
 <%= form_with model: @post || Post.new, url: posts_path, method: :post do |form| %>
   <%= form.label :radio_name, "ラジオネーム" %>
   <div>
-    <%= form.text_field :radio_name, maxlength: 25, placeholder: "Type here", class: "input input-bordered input-accent w-full max-w-xs" %>
+    <%= form.text_field :radio_name, maxlength: 25, placeholder: "名前", class: "input input-bordered input-accent w-full max-w-xs" %>
   </div>
   <%= form.label :content, "本文" %>
   <div>
