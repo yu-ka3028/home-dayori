@@ -16,19 +16,31 @@ class PostsController < ApplicationController
 
   def vote
     @post = Post.find(params[:id])
-    voted_posts = cookies[:voted_posts] ? JSON.parse(cookies[:voted_posts]) : []
-
-    if voted_posts.include?(@post.id.to_s)
-      # すでに投票済みの場合
-      flash[:alert] = 'You have already voted for this post.'
-    else
-      # まだ投票していない場合
-      @post.votes.create
-      voted_posts << @post.id.to_s
-      cookies[:voted_posts] = { value: JSON.generate(voted_posts), expires: 1.day.from_now }
-      flash[:notice] = 'Your vote was recorded.'
+  
+    if logged_in? # ログインしている場合
+      if @post.votes.where(user_id: current_user.id).exists?
+        # すでに投票済みの場合
+        flash[:alert] = 'You have already voted for this post.'
+      else
+        # まだ投票していない場合
+        @post.votes.create(user_id: current_user.id)
+        flash[:notice] = 'Your vote was recorded.'
+      end
+    else # ログインしていない場合
+      voted_posts = cookies[:voted_posts] ? JSON.parse(cookies[:voted_posts]) : []
+  
+      if voted_posts.include?(@post.id.to_s)
+        # すでに投票済みの場合
+        flash[:alert] = 'You have already voted for this post.'
+      else
+        # まだ投票していない場合
+        @post.votes.create
+        voted_posts << @post.id.to_s
+        cookies[:voted_posts] = { value: JSON.generate(voted_posts), expires: 1.day.from_now }
+        flash[:notice] = 'Your vote was recorded.'
+      end
     end
-
+  
     redirect_to post_path(@post)
   end
   
