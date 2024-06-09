@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  skip_before_action :require_login, only: [:index, :show, :new, :vote] #ログインせず開けるページ
+
   def index
     @posts = Post.all  # 全ての投稿を取得
   end
@@ -27,10 +29,10 @@ class PostsController < ApplicationController
       flash[:notice] = 'Your vote was recorded.'
     end
 
-    redirect_to show_vote_post_path(@post)
+    redirect_to post_path(@post)
   end
   
-  def show_vote
+  def show
     @post = Post.find(params[:id])
   end
 
