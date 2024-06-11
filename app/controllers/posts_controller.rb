@@ -1,17 +1,41 @@
 class PostsController < ApplicationController
-  skip_before_action :require_login, only: [:index, :show, :new, :vote] #ログインせず開けるページ
+  before_action :set_post, only: [:edit, :update, :destroy, :vote] # 投稿の取得
+  before_action :check_user, only: [:show, :edit, :update, :destroy] # ログインユーザーのみが編集、削除できる
+  skip_before_action :require_login, only: [:index, :show, :create, :new, :vote] #ログインせず開けるページ
 
   def index
     @posts = Post.all  # 全ての投稿を取得
   end
+
   def create
-    @post = Post.new(post_params)
+    if logged_in?
+      @post = current_user.posts.build(post_params) # ログインしているユーザーの投稿を作成
+    else
+      @post = Post.new(post_params) # ログインしていないユーザーも投稿を作成できる
+    end
+  
     if @post.save
       redirect_to posts_path # 保存が成功した場合、indexページにリダイレクト
     else
       flash.now[:error] = '入力が不足しています' # 保存が失敗した場合、新規投稿ページ(topページ)を再表示
       render 'posts/new'
     end
+  end
+
+  def edit
+  end
+
+  def update
+    if @post.update(post_params)
+      redirect_to @post, notice: 'Post was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @post.destroy
+    redirect_to posts_path, notice: 'Post was successfully deleted.'
   end
 
   def vote
@@ -48,7 +72,20 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-private
+  private
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  def check_user
+    if @post.user_id != current_user&.id
+      Rails.logger.debug "Current user is not the owner of the post."
+      redirect_to root_path, alert: "You are not authorized to perform this action."
+    else
+      Rails.logger.debug "Current user is the owner of the post."
+    end
+  end
 
   def post_params
     params.require(:post).permit(:radio_name, :content)

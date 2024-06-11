@@ -1,0 +1,9 @@
+<h1>Edit Post</h1>
+
+<%= form_with(model: @post, local: true) do |form| %>
+  <!-- ここにフォームのフィールドを追加します -->
+
+  <%= form.submit %>
+<% end %>
+
+<%= link_to 'Back', posts_path %>

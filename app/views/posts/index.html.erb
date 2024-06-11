@@ -7,6 +7,12 @@
           <div class="card-body">
             <h2 class="card-title"><%= post.radio_name %></h2>
             <p><%= post.content %></p>
+            <% if logged_in? && current_user.id == post.user_id %>
+              <%= link_to 'Edit', edit_post_path(post), class: "btn btn-primary", style: "position: absolute; right: 0; bottom: 50px;" %>
+              <%= form_with url: post_path(post), method: :delete, local: true do %>
+                <%= submit_tag 'Delete' %>
+              <% end %>
+            <% end %>
           </div>
         </div>
         <%= button_to '投票する', vote_post_path(post), method: :post, class: "btn btn-primary", style: "position: absolute; right: 0; bottom: 0;" %>
