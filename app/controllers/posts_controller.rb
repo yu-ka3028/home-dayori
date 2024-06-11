@@ -1,10 +1,14 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:edit, :update, :destroy, :vote] # 投稿の取得
-  before_action :check_user, only: [:show, :edit, :update, :destroy] # ログインユーザーのみが編集、削除できる
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :vote]
+  before_action :check_user, only: [:edit, :update, :destroy] 
   skip_before_action :require_login, only: [:index, :show, :create, :new, :vote] #ログインせず開けるページ
 
   def index
     @posts = Post.all  # 全ての投稿を取得
+  end
+
+  def new
+    @post = Post.new
   end
 
   def create
@@ -27,7 +31,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to @post, notice: 'Post was successfully updated.'
+      redirect_to posts_path, notice: 'Post was successfully updated.'
     else
       render :edit
     end
@@ -76,8 +80,10 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to posts_path, alert: "The post you were looking for could not be found."
   end
-
+  
   def check_user
     if @post.user_id != current_user&.id
       Rails.logger.debug "Current user is not the owner of the post."
@@ -86,7 +92,6 @@ class PostsController < ApplicationController
       Rails.logger.debug "Current user is the owner of the post."
     end
   end
-
   def post_params
     params.require(:post).permit(:radio_name, :content)
   end

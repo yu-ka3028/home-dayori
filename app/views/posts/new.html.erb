@@ -23,17 +23,21 @@
     <button type="button" class="btn btn-accent" onclick="my_modal_5.showModal()">投稿</button>
   <% end %>
 <% end %>
-    <!-- Daisy UIのモーダル -->
+  <!-- Daisy UIのモーダル -->
     <% unless current_user %>
     <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
       <div class="modal-box">
         <h3 class="font-bold text-lg">投稿内容の確認</h3>
-        <p class="py-4">ここに投稿内容が表示されます。</p>
+        <p class="py-4">
+          <strong>Radio Name:</strong> <%= @post.radio_name %><br>
+          <strong>Content:</strong> <%= @post.content %>
+        </p>
         <div class="modal-action">
           <button type="button" class="btn" onclick="document.getElementById('post-form').submit()">投稿を確定する</button>
+          <button type="button" class="btn" onclick="my_modal_5.close()">編集する</button>
         </div>
       </div>
     </dialog>
     <% end %>
-</div>
+  </div>
 </div>
