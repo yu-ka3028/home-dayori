@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mx-auto flex items-center justify-center h-screen">
   <div class="row">
     <div class=" col-md-10 col-lg-8 mx-auto">
       <h1>ログイン</h1>
@@ -14,7 +14,7 @@
         <%= f.submit "ログイン", class: "btn btn-primary" %>
       <% end %>
       <div class='text-center'>
-        <%= link_to '登録ページへ', new_user_path %>
+        <%= link_to '新規登録', new_user_path, class: "btn btn-outline btn-accent" %>
         <%= link_to 'パスワードをお忘れの方はこちら', '#' %>
       </div>
     </div>

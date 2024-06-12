@@ -13,7 +13,7 @@
   </div>
   <%= form.label :content, "本文" %>
   <div>
-    <%= form.text_area :content, maxlength: 225, class: "textarea textarea-warning", placeholder: "褒めpost" %>
+    <%= form.text_area :content, maxlength: 225, class: "textarea textarea-warning w-full max-w-xs", placeholder: "褒めpost" %>
   </div>
   <% if current_user %>
     <%= form.submit "投稿", class: "btn btn-accent" %>
@@ -27,13 +27,13 @@
     <% unless current_user %>
     <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
       <div class="modal-box">
-        <h3 class="font-bold text-lg">投稿内容の確認</h3>
+        <h3 class="font-bold text-lg">【注意】投稿内容の確認</h3>
         <p class="py-4">
-          <strong>Radio Name:</strong> <%= @post.radio_name %><br>
-          <strong>Content:</strong> <%= @post.content %>
+          ゲストの場合、投稿内容の編集・削除ができません。<br>
+          投稿内容に間違いがないか、<br>確認し「投稿を確定する」をクリックしてください。
         </p>
         <div class="modal-action">
-          <button type="button" class="btn" onclick="document.getElementById('post-form').submit()">投稿を確定する</button>
+        <button type="button" class="btn btn-error" onclick="document.getElementById('post-form').submit()">投稿を確定する</button>
           <button type="button" class="btn" onclick="my_modal_5.close()">編集する</button>
         </div>
       </div>
