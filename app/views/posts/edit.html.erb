@@ -1,0 +1,19 @@
+<h1>Edit Post</h1>
+
+<%= form_with(model: @post, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :radio_name %>
+    <%= form.text_field :radio_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "編集完了" %>
+  </div>
+<% end %>
+
+<%= link_to 'キャンセル', posts_path %>

@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   resources :posts do
     member do
       post 'vote'
-      get 'show'
     end
   end
 
