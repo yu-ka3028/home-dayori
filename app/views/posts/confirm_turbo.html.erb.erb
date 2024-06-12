@@ -1,0 +1,10 @@
+<h1>Confirm your post</h1>
+
+<p>Radio Name: <%= @post.radio_name %></p>
+<p>Content: <%= @post.content %></p>
+
+<%= form_with(model: @post, url: posts_path, method: :post) do |form| %>
+  <%= form.hidden_field :radio_name %>
+  <%= form.hidden_field :content %>
+  <%= form.submit "Confirm and Post" %>
+<% end %>
