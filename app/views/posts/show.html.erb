@@ -16,8 +16,6 @@
   <% end %>
   <% if current_user %>
     <%= link_to '戻る', posts_path(@post), class: "btn btn-accent" if @post&.persisted? %>
-  <% else %>
-    <p>Votes: <%= @post.votes.count %></p>
   <% end %>
 <% end %>
 <div class="twitter">
