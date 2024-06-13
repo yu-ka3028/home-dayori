@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     end
   
     if @post.save
-      redirect_to posts_path # 保存が成功した場合、indexページにリダイレクト
+      redirect_to @post # 保存が成功した場合、投稿詳細ページにリダイレクト
     else
       flash.now[:error] = '入力が不足しています' # 保存が失敗した場合、新規投稿ページ(topページ)を再表示
       render 'posts/new'
@@ -69,7 +69,7 @@ class PostsController < ApplicationController
       end
     end
   
-    redirect_to post_path(@post)
+    redirect_to post_path(@post, from: 'vote')
   end
   
   def show

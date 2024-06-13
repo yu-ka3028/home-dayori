@@ -1,3 +1,29 @@
-<h1><%= @post.radio_name %></h1>
-<p><%= @post.content %></p>
-<p>Votes: <%= @post.votes.count %></p>
+<div style="text-align: center;">
+<h1 style="text-align: center; font-size: 2em; color: #333;">Thank You</h1>
+<%= form_with model: @post || Post.new, url: posts_path, method: :post, id: 'post-form' do |form| %>
+  <%= form.label :radio_name, "ラジオネーム" %>
+  <div>
+    <%= @post.radio_name %>
+  </div>
+  <%= form.label :content, "本文" %>
+  <div>
+    <%= @post.content %>
+  </div>
+  <% if params[:from] == 'vote' %>
+    <div>
+      投票数: <%= @post.votes.count %>
+    </div>
+  <% end %>
+  <% if current_user %>
+    <%= link_to '戻る', posts_path(@post), class: "btn btn-accent" if @post&.persisted? %>
+  <% else %>
+    <p>Votes: <%= @post.votes.count %></p>
+  <% end %>
+<% end %>
+<div class="twitter">
+   <% share_text = params[:from] == 'vote' ? "【褒め便りへ投票しました】" : "【褒め便りへ投稿しました】" %>
+   <% share_url = params[:from] == 'vote' ? post_url(@post) : root_url %>
+   <%= link_to "https://twitter.com/share?url=#{share_url}&text=#{share_text}%0a%0a", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア", class: "btn btn-primary" do %>
+    シェア
+   <% end %>
+</div>
