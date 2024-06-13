@@ -16,17 +16,14 @@
   <% end %>
   <% if current_user %>
     <%= link_to '戻る', posts_path(@post), class: "btn btn-accent" if @post&.persisted? %>
-    <% if current_user.sharing?(@post) %>
-      <%= form_for(current_user.shares.find_by(post_id: @post.id), method: :delete) do |f| %>
-        <%= f.submit "Unshare", class: "btn" %>
-      <% end %>
-    <% else %>
-      <%= form_for(current_user.shares.build, url: shares_path) do |f| %>
-        <div><%= hidden_field_tag :post_id, @post.id %></div>
-        <%= f.submit "Share", class: "btn" %>
-      <% end %>
-    <% end %>
   <% else %>
     <p>Votes: <%= @post.votes.count %></p>
   <% end %>
 <% end %>
+<div class="twitter">
+   <% share_text = params[:from] == 'vote' ? "【褒め便りへ投票しました】" : "【褒め便りへ投稿しました】" %>
+   <% share_url = params[:from] == 'vote' ? post_url(@post) : root_url %>
+   <%= link_to "https://twitter.com/share?url=#{share_url}&text=#{share_text}%0a%0a", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア", class: "btn btn-primary" do %>
+    シェア
+   <% end %>
+</div>
