@@ -69,7 +69,7 @@ class PostsController < ApplicationController
       end
     end
   
-    redirect_to post_path(@post)
+    redirect_to post_path(@post, from: 'vote')
   end
   
   def show
