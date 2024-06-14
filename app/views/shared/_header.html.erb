@@ -15,16 +15,16 @@
             <% end %>
           </li>
           <li>
-            <details>
-              <summary style="font-size: 20px; padding: 5px;">
-                <%= image_tag("https://i.gyazo.com/66b84def7036cafb9b2b105a22604763.png", style: 'height: 40px; vertical-align: middle;') %>
-              </summary>
-              <ul class="p-2 bg-base-100 rounded-t-none">
-                <li><%= link_to 'Top', root_path, style: 'font-size: 15px;' %></li>
-                <li><%= link_to '新規投稿', new_post_path, style: 'font-size: 15px;' %></li>
-                <li><%= link_to '投稿一覧', posts_path, style: 'font-size: 15px;' %></li>
-              </ul>
-            </details>
+            <details style="position: relative;">
+            <summary style="font-size: 20px; padding: 5px;">
+              <%= image_tag("https://i.gyazo.com/66b84def7036cafb9b2b105a22604763.png", style: 'height: 50px; vertical-align: middle;') %>
+            </summary>
+            <ul class="p-2 bg-base-100 rounded-t-none" style="width: 200%; white-space: nowrap; position: absolute; right: 0;">
+              <li><%= link_to 'Top', root_path, style: 'font-size: 15px;' %></li>
+              <li><%= link_to '新規投稿', new_post_path, style: 'font-size: 15px;' %></li>
+              <li><%= link_to '投稿一覧', posts_path, style: 'font-size: 15px;' %></li>
+            </ul>
+          </details>
           </li>
         </ul>
       </div>
