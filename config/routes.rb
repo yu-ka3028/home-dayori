@@ -15,4 +15,11 @@ Rails.application.routes.draw do
   delete 'logout', to: 'user_sessions#destroy'
 
   resources :shares, only: [:create, :destroy]
+
+  resources :users, only: %i[new create] do
+    member do
+      get 'profile' # プロフィールページへのルーティングを追加
+    end
+  end
+
 end

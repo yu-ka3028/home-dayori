@@ -11,10 +11,14 @@
           <%= f.label :password %>
           <%= f.password_field :password, class: "form-control" %>
         </div>
-        <%= f.submit "ログイン", class: "btn btn-primary" %>
+        <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+          <%= image_tag("https://i.gyazo.com/9398355c50f4ed93fdff7e0373702c47.png", alt: "Icon", style: "height: 20px;") %> ログイン
+        <% end %>
       <% end %>
       <div class='text-center'>
-        <%= link_to '新規登録', new_user_path, class: "btn btn-outline btn-accent" %>
+        <%= link_to new_user_path, class: "btn btn-outline btn-accent" do %>
+          <%= image_tag("https://i.gyazo.com/ac1e18e1c22d2ac80d8b787870bd5882.png", alt: "Icon", style: "height: 20px;") %> 新規登録
+        <% end %>
         <%= link_to 'パスワードをお忘れの方はこちら', '#' %>
       </div>
     </div>

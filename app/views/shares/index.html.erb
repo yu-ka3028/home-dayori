@@ -1,0 +1,11 @@
+<% if current_user.sharing?(@post) %>
+  <%= form_for(current_user.shares.find_by(post_id: @post.id),
+               method: :delete) do |f| %>
+    <%= f.submit "Unshare", class: "btn" %>
+  <% end %>
+<% else %>
+  <%= form_for(current_user.shares.build, url: shares_path) do |f| %>
+    <div><%= hidden_field_tag :post_id, @post.id %></div>
+    <%= f.submit "Share", class: "btn" %>
+  <% end %>
+<% end %>

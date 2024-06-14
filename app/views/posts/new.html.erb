@@ -1,11 +1,10 @@
 <h1 style="text-align: center; font-size: 2em; color: #333;">新規投稿</h1>
+<div class="container mx-auto flex items-center justify-center h-screen">
 <% if flash[:error] %>
   <div class="alert alert-danger">
     <%= flash[:error] %>
   </div>
 <% end %>
-<div class="h-full w-4/5 flex justify-end items-start">
-  <div class="h-96 w-3/5 ml-40 mt-14 carousel carousel-vertical rounded-box transform scale-400">
 <%= form_with model: @post || Post.new, url: posts_path, method: :post, id: 'post-form' do |form| %>
   <%= form.label :radio_name, "ラジオネーム" %>
   <div>

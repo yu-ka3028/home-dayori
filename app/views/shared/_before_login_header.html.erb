@@ -2,15 +2,22 @@
   <nav>
     <div class="navbar bg-base-100" style="background-color: #BBAB8C">
       <div class="flex-1">
-        <%= link_to 'Home-Post', root_path, class: 'btn btn-ghost text-xl', style: 'font-size: 25px;' %>
+        <%= link_to root_path, class: 'btn btn-ghost text-xl', style: 'font-size: 80px; height: 80px;' do %>
+          <%= image_tag("https://i.gyazo.com/df33ce9bc34b954c21b7427ee42a8a6e.png", alt: "Logo", style: "height: 80px; vertical-align: middle;") %>
+        <% end %>
       </div>
       <div class="flex-none">
-        <ul class="menu menu-horizontal px-1">
-          <li><a style="font-size: 30px;">Link</a></li>
+        <ul class="menu menu-horizontal px-1" style="align-items: center;">
+        <li><%= link_to 'ゲストユーザー', class: 'dropdown-item', style: 'font-size: 25px;' %></li>
+          <li>
+            <%= link_to login_path, class: 'dropdown-item', style: 'font-size: 25px;' do %>
+              <%= image_tag("https://i.gyazo.com/9398355c50f4ed93fdff7e0373702c47.png", alt: "ログイン", style: "height: 50px; vertical-align: middle;") %>
+            <% end %>
+          </li>
           <li>
             <details>
-              <summary style="font-size: 30px;">
-              index  
+              <summary>
+                <%= image_tag("https://i.gyazo.com/66b84def7036cafb9b2b105a22604763.png", style: 'height: 70px; vertical-align: middle;') %>
               </summary>
               <ul class="p-2 bg-base-100 rounded-t-none">
                 <li><%= link_to 'Top', root_path, style: 'font-size: 15px;' %></li>
@@ -19,9 +26,6 @@
               </ul>
             </details>
           </li>
-          <li><%= link_to 'ユーザー名', '#', class: 'dropdown-item', style: 'font-size: 25px;' %></li>
-          <li><%= link_to 'プロフィール', '#', class: 'dropdown-item', style: 'font-size: 25px;' %></li>
-          <li><%= link_to 'ログイン', login_path, class: 'dropdown-item', style: 'font-size: 25px;' %></li>
         </ul>
       </div>
     </div>
