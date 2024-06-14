@@ -1,9 +1,9 @@
 <h1 style="text-align: center; font-size: 2em; color: #333;">投稿一覧</h1>
-<div class="h-full w-full flex justify-end items-start">
-  <div class="h-96 w-full ml-40 mt-14 carousel carousel-vertical rounded-box transform scale-400">
+<div class="h-full w-full flex justify-center items-start px-4">
+  <div class="h-96 w-full mt-14 carousel carousel-vertical rounded-box transform scale-400">
     <% @posts.each do |post| %>
       <div class="carousel-item h-full" style="background-color: rgba(246, 238, 201, 0.6); position: relative;">
-        <div class="card w-96">
+        <div class="card w-full max-w-2xl">
           <div class="card-body">
             <h2 class="card-title"><%= post.radio_name %></h2>
             <p><%= post.content %></p>
