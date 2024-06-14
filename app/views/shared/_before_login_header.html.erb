@@ -8,16 +8,16 @@
       </div>
       <div class="flex-none">
         <ul class="menu menu-horizontal px-1" style="align-items: center;">
-        <li><%= link_to 'ゲストユーザー', class: 'dropdown-item', style: 'font-size: 25px;' %></li>
+        <li><%= link_to 'ゲストユーザー', class: 'dropdown-item', style: 'font-size: 25px; padding: 5px;' %></li>
           <li>
-            <%= link_to login_path, class: 'dropdown-item', style: 'font-size: 25px;' do %>
-              <%= image_tag("https://i.gyazo.com/9398355c50f4ed93fdff7e0373702c47.png", alt: "ログイン", style: "height: 50px; vertical-align: middle;") %>
+            <%= link_to login_path, class: 'dropdown-item', style: 'font-size: 25px; padding: 5px;' do %>
+              <%= image_tag("https://i.gyazo.com/9398355c50f4ed93fdff7e0373702c47.png", alt: "ログイン", style: "height: 50px; vertical-align: middle; padding: 5px;") %>
             <% end %>
           </li>
           <li>
             <details>
-              <summary>
-                <%= image_tag("https://i.gyazo.com/66b84def7036cafb9b2b105a22604763.png", style: 'height: 70px; vertical-align: middle;') %>
+              <summary style="font-size: 20px; padding: 5px;">
+                <%= image_tag("https://i.gyazo.com/66b84def7036cafb9b2b105a22604763.png", style: 'height: 50px; vertical-align: middle;') %>
               </summary>
               <ul class="p-2 bg-base-100 rounded-t-none">
                 <li><%= link_to 'Top', root_path, style: 'font-size: 15px;' %></li>

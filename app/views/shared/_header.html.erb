@@ -8,16 +8,16 @@
       </div>
       <div class="flex-none">
         <ul class="menu menu-horizontal px-1" style="align-items: center;">
-          <li><%= link_to "#{current_user.first_name}のプロフィール", profile_user_path(current_user), class: 'dropdown-item', style: 'font-size: 25px;' %></li>
+        <%= link_to "<strong>#{current_user.first_name}</strong>の<br>プロフィール".html_safe, profile_user_path(current_user), class: 'dropdown-item', style: 'font-size: 15px; line-height: 1.5; padding: 5px;' %>
           <li>
-            <%= form_with url: logout_path, method: :delete, class: 'dropdown-item' do %>
-              <%= image_submit_tag("https://i.gyazo.com/0a6f083e5f557330a22fbdec248c447e.png", style: 'height: 50px; vertical-align: middle;') %>
+            <%= form_with url: logout_path, method: :delete, class: 'dropdown-item', style: 'padding: 0; margin: 0;' do %>
+              <%= image_submit_tag("https://i.gyazo.com/0a6f083e5f557330a22fbdec248c447e.png", style: 'height: 40px; vertical-align: middle;') %>
             <% end %>
           </li>
           <li>
             <details>
-              <summary>
-                <%= image_tag("https://i.gyazo.com/66b84def7036cafb9b2b105a22604763.png", style: 'height: 70px; vertical-align: middle;') %>
+              <summary style="font-size: 20px; padding: 5px;">
+                <%= image_tag("https://i.gyazo.com/66b84def7036cafb9b2b105a22604763.png", style: 'height: 40px; vertical-align: middle;') %>
               </summary>
               <ul class="p-2 bg-base-100 rounded-t-none">
                 <li><%= link_to 'Top', root_path, style: 'font-size: 15px;' %></li>
