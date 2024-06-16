@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy, :vote]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :vote] 
   before_action :check_user, only: [:edit, :update, :destroy] 
   skip_before_action :require_login, only: [:index, :show, :create, :new, :vote] #ログインせず開けるページ
 
@@ -37,6 +37,15 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     redirect_to posts_path, notice: 'Post was successfully deleted.'
+  end
+
+  def check_user
+    unless @post.user_id == current_user&.id || current_user&.admin?
+      Rails.logger.debug "Current user is not the owner of the post and not an admin."
+      redirect_to root_path, alert: "You are not authorized to perform this action."
+    else
+      Rails.logger.debug "Current user is the owner of the post or an admin."
+    end
   end
 
   def vote
@@ -82,13 +91,11 @@ class PostsController < ApplicationController
   end
   
   def check_user
-    if @post.user_id != current_user&.id
-      Rails.logger.debug "Current user is not the owner of the post."
+    unless @post.user_id == current_user&.id || current_user&.admin?
       redirect_to root_path, alert: "You are not authorized to perform this action."
-    else
-      Rails.logger.debug "Current user is the owner of the post."
     end
   end
+  
   def post_params
     params.require(:post).permit(:radio_name, :content)
   end

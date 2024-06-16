@@ -10,7 +10,7 @@
               <p style="font-size: 0.8em;">投稿日時: <%= post.created_at.strftime('%Y/%m/%d %H:%M') %></p>
               <p style="font-size: 0.8em;">投票総数: <%= post.votes.count %></p>
             </div>
-            <% if logged_in? && current_user.id == post.user_id %>
+            <% if logged_in? && (current_user.id == post.user_id || current_user.email == 'home@dayori') %>
               <div style="display: flex;">
                 <%= link_to edit_post_path(post), style: "margin-right: 2px;" do %>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="h-4 w-4 mr-2 inline-block" fill="currentColor">

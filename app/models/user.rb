@@ -20,4 +20,9 @@ class User < ApplicationRecord
   def unshare(post)
     shares.find_by(post_id: post.id)&.destroy
   end
+
+  def admin?
+    self.admin
+  end
+
 end
