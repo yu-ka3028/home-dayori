@@ -1,5 +1,5 @@
-<h1 style="text-align: center; font-size: 2em; color: #333;">投稿一覧</h1>
-<div class="h-full w-full flex justify-center items-start px-4">
+<h1 style="text-align: center; font-size: 2em; color: #333; font-handwriting">投稿一覧</h1>
+<div class="h-full w-full flex justify-center items-start px-4 font-handwriting">
   <div class="h-96 w-full mt-14 carousel carousel-vertical rounded-box transform scale-400">
   <% @posts.order(created_at: :desc).each do |post| %>
     <div class="carousel-item h-full" style="background-color: rgba(246, 238, 201, 0.6); position: relative;">

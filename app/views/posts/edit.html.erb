@@ -1,24 +1,24 @@
-<h1 style="text-align: center; font-size: 2em; color: #333;">Edit</h1>
+<h1 style="text-align: center; font-size: 2em; color: #333; font-handwriting">Edit</h1>
 <div class="h-full w-full flex justify-center items-start px-4">
 
 <%= form_with(model: @post, local: true) do |form| %>
-  <div class="form-fields" style="display: flex; flex-direction: column;">
+  <div class="form-fields" style="display: flex; flex-direction: column; font-handwriting">
     <div class="field">
       <%= form.label :radio_name %>
     </div>
-      <%= form.text_field :radio_name %>
+      <%= form.text_field :radio_name, style: "width: 500px; height: 30px;" %>
     </div>
 
     <div class="field">
       <%= form.label :content %>
     </div>
-      <%= form.text_area :content %>
+      <%= form.text_area :content, style: "width: 500px; height: 200px;" %>
     </div>
 
     <div class="actions" style="display: flex; justify-content: center;">
-      <%= link_to 'キャンセル', posts_path, class: "ml-4" %>
-      <%= form.submit "編集完了" %>
-    </div>
+    <%= link_to 'キャンセル', posts_path, class: "btn btn-outline ml-4" %>
+    <%= form.submit "編集完了", class: "btn btn-primary" %>
+  </div>
   </div>
 <% end %>
 </div>

@@ -1,12 +1,52 @@
-<div class="hero min-h-screen" style="background-image: url(https://sozaino.site/wp-content/uploads/2022/03/shiba5.png);">
-  <div class="hero-overlay bg-opacity-60"></div>
-  <div class="hero-content text-center text-neutral-content">
+<div class="hero min-h-screen" style="background-image: url(https://i.gyazo.com/13b49a8a4740c01fe65471cfdd5de9a7.png); font-handwriting">
+  <div class="hero-overlay bg-opacity-0"></div>
+  <div class="hero-content text-center text-neutral-content" style="color: #594545;">
     <div class="max-w-md">
-      <h1 class="mb-5 text-6xl font-bold">褒め便り。</h1>
-      <h5 class="mb-5 text-2xl font-bold">ラジオネーム、何する？</h5>
-      <p class="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-      <%= link_to 'ゲストで投稿してみる', new_post_path, class: 'btn btn-accent' %>
-      <%= link_to 'ログインして投稿', login_path, class: 'btn btn-accent' %>
+      <h1 class="mb-5 text-6xl font-handwriting">褒め便り。</h1>
+      <h5 class="mb-5 text-2xl font-handwriting">ラジオネーム、何にする？</h5>
+      <p class="mb-5">You're all doing a fantastic job! Mental health issues are real, and self-care is crucial. Take a moment each day to reflect and post something positive about yourself, no matter how small.
+
+      By affirming and being kind to yourself, you naturally become kinder to others. This is the essence of a kind world!</p>
+      <%= link_to 'ゲストで投稿してみる', new_post_path, class: 'btn btn-accent', style: 'color: #black;' %>
+      <%= link_to 'ログインして投稿', login_path, class: 'btn btn-accent', style: 'color: #black;' %>
+      <br>
+      <br>
+      <br>
+      <div class="animate-focus-in-expand font-handwriting">
+        <p>毎日お疲れさまです。</p>
+        <p>何かと慌ただしい日々に、<br>毎日が 1週間が 1ヶ月...と過ぎていませんか？</p>
+        <p>そんなあなたに、少しの癒しとエールを。</p>
+        <p>褒め便り。でゆるっと１日を振り返ってみませんか？</p>
+      </div>
+      <br>
+      <button class="btn" onclick="my_modal_5.showModal()">使い方</button>
     </div>
   </div>
+  <!-- モーダルの定義 -->
+  <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle font-handwriting">
+    <div class="modal-box">
+      <h3 class="font-handwriting text-lg">使い方</h3>
+      <p class="py-4">
+      <h1><strong><u>1. ラジオネームを決める</u><strong></h1>
+      <h3>ラジオのように、匿名で気軽に投稿できます</h3>
+      <h3>今日の気分で決めてみて下さい。</h3>
+      <br>
+      <h1><strong><u>2. 今日の褒め便りを投稿する</u><strong></h1>
+      <h3>ラジオリスナーになった気分で、匿名で気軽に。<h3>
+      <h3>テーマは「今日の自分を褒めるなら？」</h3>
+      <br>
+      <h3>１日を振り返って、自分を褒めてみましょう。</h3>
+      <h3>小さなことでOK!その時の感情も一緒に書いてみて下さい。</h3>
+      <br>
+      <h1><strong><u>3. 他の人の褒め便りを見る</u><strong></h1>
+      <h3>他の人の便りに共感したり、投票したりしてみましょう。</h3>
+      <h3>あなた送った褒め便りが、誰かの励みになるかもしれません。</h3>
+      </p>
+      <div class="modal-action">
+        <form method="dialog">
+          <button class="btn">Close</button>
+        </form>
+      </div>
+    </div>
+  </dialog>
 </div>
