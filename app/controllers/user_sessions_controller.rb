@@ -7,7 +7,7 @@ class UserSessionsController < ApplicationController
     @user = login(params[:email], params[:password])
 
     if @user
-      redirect_to new_post_path
+      redirect_to profile_user_path(@user)
     else
       render :new
     end

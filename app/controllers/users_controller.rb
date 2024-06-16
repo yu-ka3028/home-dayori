@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       auto_login(@user)  # ユーザーをログインさせる
-      redirect_to new_post_path
+      redirect_to profile_user_path(@user)
     else
       render :new
     end
