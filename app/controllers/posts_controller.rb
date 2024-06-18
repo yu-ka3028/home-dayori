@@ -28,7 +28,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to @post, notice: 'Post was successfully updated.'
+      redirect_to @post, notice: '投稿が更新されました'
     else
       render :edit
     end
@@ -97,6 +97,6 @@ class PostsController < ApplicationController
   end
   
   def post_params
-    params.require(:post).permit(:radio_name, :content)
+    params.require(:post).permit(:radio_name, :content) 
   end
 end
