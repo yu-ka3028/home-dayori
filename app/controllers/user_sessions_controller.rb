@@ -7,6 +7,10 @@ class UserSessionsController < ApplicationController
     @user = login(params[:email], params[:password])
 
     if @user
+      if params[:remember_me]
+        @user.remember_me!
+        cookies.permanent.signed[:remember_me_token] = @user.remember_me_token
+      end
       redirect_to profile_user_path(@user)
     else
       render :new
